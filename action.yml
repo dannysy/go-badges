@@ -1,0 +1,25 @@
+name: Go Coverage Badge
+description: Generate coverage badge for go projects
+author: dannysy
+inputs:
+  coveragePath:
+    description: 'path to file with coverage test report'
+    required: true
+    default: coverage.out
+  readmePath:
+    description: 'path to README.md'
+    required: false
+    default: README.md
+
+
+runs:
+  using: 'composite'
+  steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-go@v3
+    with:
+      go-version: '>=1.17.0'
+    - run: go run main.go cb -cf=${{coveragePath}} -rf=${{readmePath}}
+branding:
+  icon: check
+  color: blue
