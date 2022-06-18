@@ -24,8 +24,6 @@ runs:
       run: cd ./go-badges/ &&
         go build -o runnable ./main.go &&
         cd .. &&
-        ls -a &&
-        cat ${{inputs.coveragePath}} &&
         ./go-badges/runnable cb -cf=${{inputs.coveragePath}} -rf=${{inputs.readmePath}}
       shell: bash
 branding:
