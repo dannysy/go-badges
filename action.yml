@@ -22,7 +22,7 @@ runs:
         path: ./go-badges/
     - name: Update Coverage Badge in README.md
       run: cd ./go-badges/ &&
-        go mod download &&
+        go mod tidy &&
         cd .. &&
         go run ./go-badges/main.go cb -cf=${{inputs.coveragePath}} -rf=${{inputs.readmePath}}
       shell: bash
