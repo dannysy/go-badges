@@ -21,7 +21,10 @@ runs:
         repository: dannysy/go-badges
         path: ./go-badges/
     - name: Update Coverage Badge in README.md
-      run: go run ./go-badges/main.go cb -cf=${{inputs.coveragePath}} -rf=${{inputs.readmePath}}
+      run: cd ./go-badges/ &&
+        go mod download &&
+        cd .. &&
+        go run ./go-badges/main.go cb -cf=${{inputs.coveragePath}} -rf=${{inputs.readmePath}}
       shell: bash
 branding:
   icon: check
