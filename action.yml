@@ -23,6 +23,8 @@ runs:
     - name: Update Coverage Badge in README.md
       run: cd ./go-badges/ &&
         echo "GO111MODULE=on" && 
+        ls -a &&
+        cat ${{inputs.coveragePath} &&
         go build -o runnable ./main.go &&
         cd .. &&
         ./go-badges/runnable cb -cf=${{inputs.coveragePath}} -rf=${{inputs.readmePath}}
