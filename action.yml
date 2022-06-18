@@ -15,7 +15,7 @@ inputs:
 runs:
   using: 'composite'
   steps:
-    - run: go run main.go cb -cf=${{coveragePath}} -rf=${{readmePath}}
+    - run: go run main.go cb -cf=${{inputs.coveragePath}} -rf=${{inputs.readmePath}}
       shell: bash
 branding:
   icon: check
